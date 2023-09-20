@@ -100,7 +100,7 @@ public class UnityToNode : MonoBehaviour
 
         this.btnConstruction_Get.onClick.AddListener(() =>
         {
-            var url = string.Format("{0}:{1}/{2}", host, port, startConstructionUrl);   //URL 爽社 持失
+            var url = string.Format("{0}:{1}/{2}", host, port, checkConstructionUrl);   //URL 爽社 持失
             Debug.Log(url);
 
             StartCoroutine(this.GetData(url, (raw) =>

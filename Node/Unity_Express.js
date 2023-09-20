@@ -19,7 +19,7 @@ app.post('/startConstruction' , (req, res)=> {
     console.log("SYSTEM : 건설 시작");
     res.send({                                  //기본 커맨드로 전송
         cmd : 1101,
-        nessage : "SYSTEM : 건설 시작 ",
+        message : "SYSTEM : 건설 시작 ",
         result
     });
 });
@@ -34,7 +34,7 @@ app.get('/checkConstruction' , (req, res) => {
         console.log("SYSTEM : 건설 완료");
         res.send({                                  //기본 커맨드로 전송
             cmd : 1101,
-            nessage : "SYSTEM : 건설 완료 ",
+            message : "SYSTEM : 건설 완료 ",
             result
         });     
     }
@@ -48,7 +48,7 @@ app.get('/checkConstruction' , (req, res) => {
         }
         res.send({                                  //기본 커맨드로 전송
             cmd : 1101,
-            nessage : "SYSTEM : 건설 중입니다. ",
+            message : "SYSTEM : 건설 중입니다. ",
             result
         });
     }
@@ -75,7 +75,6 @@ app.get('/id',(req ,res)=>{
         cmd : 100,
         message : 'MyID'
     };
-
     res.send(result);
 });
 
