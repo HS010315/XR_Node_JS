@@ -20,6 +20,8 @@ public class UnityToNode : MonoBehaviour
     public Button btnGetExample;
     public Button btnPostExample;
     public Button btnResDataExample;
+    public Button btnConstruction_Post;
+    public Button btnConstruction_Get;
 
     public int id;
     public string data;
@@ -76,6 +78,38 @@ public class UnityToNode : MonoBehaviour
 
             }));
         });
+
+        this.btnConstruction_Post.onClick.AddListener(() =>     // 건설 시작 POST 통신
+        {
+            var url = string.Format("{0}:{1}/{2}", host, port, startConstructionUrl);   //URL 주소 생성
+            Debug.Log(url);
+
+            var req = new Protocols.Packets.req_data();                                 //프로토콜을 만들어준다.
+            req.cmd = 1000;
+            req.id = id;
+            req.data = data;
+            var json = JsonConvert.SerializeObject(req);
+            Debug.Log(json);
+
+            StartCoroutine(this.PostData(url, json, (raw) =>
+           {
+               Protocols.Packets.common res = JsonConvert.DeserializeObject<Protocols.Packets.common>(raw);
+               Debug.Log(res);
+           }));
+        });
+
+        this.btnConstruction_Get.onClick.AddListener(() =>
+        {
+            var url = string.Format("{0}:{1}/{2}", host, port, startConstructionUrl);   //URL 주소 생성
+            Debug.Log(url);
+
+            StartCoroutine(this.GetData(url, (raw) =>
+            {
+                var res = JsonConvert.DeserializeObject<Protocols.Packets.common>(raw);
+                Debug.LogFormat("{0}, {1}", res.cmd, res.message);
+            }));
+        });
+        
     }
 
     private IEnumerator GetData(string url, System.Action<string> callback)
