@@ -802,7 +802,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 632d6bcb15f5616498fc55c58ce093d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  host: http://127.0.0.1
+  host: https://127.0.0.1
   port: 3030
   idUrl: 
   postUrl: userdata
