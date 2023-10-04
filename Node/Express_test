@@ -12,5 +12,5 @@ app.get('/about', (req , res)=>{                         //라우터 "/about"
 });
 
 app.listen(3030 , ()=>{
-    console.log('server is running at 3030 port');
+    console.log('server is running at 3000 port');
 });

@@ -131,6 +131,6 @@ app.post('/userdata' , (req ,res) => {
 
 });
 
-app.listen(3030, ()=> {
-    console.log('server is running at 3030 port');
+app.listen(3000, ()=> {
+    console.log('server is running at 3000 port');
 });
